@@ -3,11 +3,11 @@ using Cinemachine;
 
 public class ScreenTransition : MonoBehaviour
 {
-    // debug only.
-    public Rigidbody2D testControl;
+    private const float leftBoundaryWidth = 2;
 
-    private static CinemachineConfiner confines;
-    private static Transform player;
+    [SerializeField] private CinemachineConfiner confines;
+
+    [SerializeField] private Transform player;
 
     [SerializeField] private float playerHitboxWidth;
     [SerializeField] private float playerHitboxOriginToGround;
@@ -20,17 +20,8 @@ public class ScreenTransition : MonoBehaviour
 
     private void Awake()
     {
-        if (confines == null)
-        {
-            confines = FindObjectOfType<CinemachineConfiner>();
-        }
-        if (player == null)
-        {
-            // Replace with code that gets the player class.
-            player = testControl.transform;
-        }
-
         UpdateRightBound(frameRegions[currentFrameIndex]);
+        GenerateNewLeftBoundary(frameRegions[currentFrameIndex]);
     }
 
     private void Update()
@@ -39,32 +30,14 @@ public class ScreenTransition : MonoBehaviour
         {
             currentFrameIndex++;
 
-            if(currentFrameIndex == frameRegions.Length - 1)
-            {
-                // Last screen in the game.
-            }
-            else
-            {
-
-            }
-
-            // Move to th next screen region
+            // Move to the next screen region
             confines.m_BoundingShape2D = frameRegions[currentFrameIndex];
             Vector2 lowerLeft = GetPolyLowerLeft(frameRegions[currentFrameIndex]);
             lowerLeft.y += entranceHeight;
             lowerLeft.y += playerHitboxOriginToGround;
             player.position = lowerLeft;
             UpdateRightBound(frameRegions[currentFrameIndex]);
-        }
-
-        // debug only
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            testControl.AddForce(Vector2.right * 5, ForceMode2D.Impulse);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            testControl.AddForce(Vector2.left * 5, ForceMode2D.Impulse);
+            GenerateNewLeftBoundary(frameRegions[currentFrameIndex]);
         }
     }
 
@@ -89,6 +62,17 @@ public class ScreenTransition : MonoBehaviour
         {
             if (point.x > x) { x = point.x; }
         }
-        currentFrameRightBound = x;
+        currentFrameRightBound = x + collider.gameObject.transform.position.x;
+    }
+    private Transform GenerateNewLeftBoundary(PolygonCollider2D collider)
+    {
+        GameObject newBoundary = new GameObject();
+        BoxCollider2D newCollider = newBoundary.AddComponent<BoxCollider2D>();
+
+        newCollider.size = new Vector2(leftBoundaryWidth, collider.bounds.extents.y * 2);
+        Vector2 colliderCenter = GetPolyLowerLeft(collider) + Vector2.up * collider.bounds.extents.y;
+        colliderCenter.x -= 0.5f * leftBoundaryWidth;
+        newBoundary.transform.position = colliderCenter;
+        return newBoundary.transform;
     }
 }
