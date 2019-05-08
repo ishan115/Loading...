@@ -31,6 +31,7 @@ public class PlayerMovementController : MonoBehaviour
     private bool jumpInput, canJump, playerIsOnGround;
     private float playerMovement;
     private bool canMove;
+    private bool isAlive;
     private LayerMask whatIsGround;
     #endregion
 
@@ -71,6 +72,15 @@ public class PlayerMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //TODO: Debug.Log for player movement
+        Debug.Log($"playerIsOnGround == {playerIsOnGround}");
+        Debug.Log($"player can move == {PlayerCanMove}");
+
+        if (isAlive)
+        {
+            PlayerCanMove = true;
+        }
+
         if (PlayerCanMove)
         {
             GetMovementInput();
@@ -84,6 +94,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void InitializePlayer()
     {
+        isAlive = true;
         whatIsGround = LayerMask.GetMask("Ground");
         groundCheck = gameObject.transform.GetChild(0); //Retrieves the transform component from the child named GroundCheck
         playerRigidBody = GetComponent<Rigidbody2D>();
