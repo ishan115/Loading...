@@ -33,8 +33,11 @@ public class PlayerMovementController : MonoBehaviour
     private bool canMove;
     private bool isAlive;
     private LayerMask whatIsGround;
+    private CheckpointController currentCheckpoint;
+    private Transform currentCheckpointLocation;
     #endregion
 
+    #region Properties
     //Made accessable to other 
     public bool PlayerCanMove
     {
@@ -47,6 +50,29 @@ public class PlayerMovementController : MonoBehaviour
             canMove = value;
         }
     }
+
+    public CheckpointController CurrentCheckpoint
+    {
+        get
+        {
+            return currentCheckpoint;
+        }
+        set
+        {
+            if (currentCheckpoint == null)
+            {
+                currentCheckpoint = value;
+                currentCheckpoint.IsActivated = true;
+            }
+            else
+            {
+                currentCheckpoint.IsActivated = false;
+                currentCheckpoint = value;
+                currentCheckpoint.IsActivated = true;
+            }
+        }
+    }
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -160,4 +186,41 @@ public class PlayerMovementController : MonoBehaviour
             transform.localScale = new Vector3(this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z);
         }
     }
+
+    //********THIS IS FOR WHEN FOOTSTEP SFX ARE ADDED AND READY**************
+    //private void AudioHandler()
+    //{
+    //    if (myRigidBody.velocity.x > 0.1 && grounded)
+    //    {
+    //        FootstepFX.UnPause();
+    //    }
+    //    else if (myRigidBody.velocity.x < -0.1 && grounded)
+    //    {
+    //        FootstepFX.UnPause();
+    //    }
+    //    else if (myRigidBody.velocity.x == 0 || !grounded)
+    //    {
+    //        FootstepFX.Pause();
+    //    }
+    //}
+
+    //private void Respawn()
+    //{
+    //    if (CurrentCheckpoint == null)
+    //        transform.position = spawnPointLocation.position;
+    //    else
+    //    {
+    //        myRigidBody.velocity = Vector2.zero;
+    //        transform.position = CurrentCheckpoint.transform.position;
+    //    }
+    //    //Reset variables for player Respawn
+    //    isAlive = true;
+    //    myRigidBody.transform.rotation = Quaternion.identity;
+    //    myRigidBody.freezeRotation = true;
+    //    playerBody.color = Color.white;
+    //    isDamagable = true;
+    //    allowMoveInput = true;
+    //    lifeCounter.GameOver = false;
+    //    FootstepFX.UnPause();
+    //}
 }
