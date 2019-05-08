@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using Cinemachine;
 
 public class ScreenTransition : MonoBehaviour
@@ -15,6 +16,11 @@ public class ScreenTransition : MonoBehaviour
     [SerializeField] private PolygonCollider2D[] frameRegions;
     [SerializeField] private uint entranceHeight;
 
+    [SerializeField] private RawImage fadeImage;
+
+    [SerializeField] private Animator fadeAnimator;
+    [SerializeField] private AnimationClip fadeClip;
+ 
     private int currentFrameIndex = 0;
     private float currentFrameRightBound;
 
