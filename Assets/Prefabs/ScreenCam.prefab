@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5462491507617581081}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6389432, y: 0.63874507, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5462491507109361320}
@@ -200,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5462491507797192487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.000919044, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: -0.63986224, y: 1.2774903, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5462491507617581080}
@@ -312,3 +312,4 @@ MonoBehaviour:
   playerHitboxOriginToGround: 0
   frameRegions: []
   entranceHeight: 5
+  fadeAnimator: {fileID: 0}

@@ -16,13 +16,12 @@ public class ScreenTransition : MonoBehaviour
     [SerializeField] private PolygonCollider2D[] frameRegions;
     [SerializeField] private uint entranceHeight;
 
-    [SerializeField] private RawImage fadeImage;
-
     [SerializeField] private Animator fadeAnimator;
-    [SerializeField] private AnimationClip fadeClip;
  
     private int currentFrameIndex = 0;
     private float currentFrameRightBound;
+
+    private bool transitionInProgress = false;
 
     private void Awake()
     {
@@ -34,17 +33,28 @@ public class ScreenTransition : MonoBehaviour
     {
         if(player.position.x > currentFrameRightBound)
         {
-            currentFrameIndex++;
-
-            // Move to the next screen region
-            confines.m_BoundingShape2D = frameRegions[currentFrameIndex];
-            Vector2 lowerLeft = GetPolyLowerLeft(frameRegions[currentFrameIndex]);
-            lowerLeft.y += entranceHeight;
-            lowerLeft.y += playerHitboxOriginToGround;
-            player.position = lowerLeft;
-            UpdateRightBound(frameRegions[currentFrameIndex]);
-            GenerateNewLeftBoundary(frameRegions[currentFrameIndex]);
+            if (!transitionInProgress)
+            {
+                transitionInProgress = true;
+                fadeAnimator.SetTrigger("FadeBlack");
+            }
         }
+    }
+
+    public void Transition()
+    {
+        currentFrameIndex++;
+
+        // Move to the next screen region
+        confines.m_BoundingShape2D = frameRegions[currentFrameIndex];
+        Vector2 lowerLeft = GetPolyLowerLeft(frameRegions[currentFrameIndex]);
+        lowerLeft.y += entranceHeight;
+        lowerLeft.y += playerHitboxOriginToGround;
+        player.position = lowerLeft;
+        UpdateRightBound(frameRegions[currentFrameIndex]);
+        GenerateNewLeftBoundary(frameRegions[currentFrameIndex]);
+
+        transitionInProgress = false;
     }
 
     private Vector2 GetPolyLowerLeft(PolygonCollider2D collider)
