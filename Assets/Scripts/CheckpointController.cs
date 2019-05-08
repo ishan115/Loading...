@@ -5,7 +5,6 @@ using UnityEngine;
 public class CheckpointController : MonoBehaviour
 {
     private bool isActivated;
-    private Animator anim;
     private PlayerMovementController playerController;
     /// <summary>
     /// Property Used to Activate or Deactivate checkpoints
@@ -24,7 +23,7 @@ public class CheckpointController : MonoBehaviour
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+
     }
 
     private void Start()

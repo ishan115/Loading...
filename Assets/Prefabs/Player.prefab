@@ -147,6 +147,7 @@ MonoBehaviour:
   playerJumpForce: 5
   groundCheckRadius: 0.2
   groundCheck: {fileID: 8846912627229335401}
+  spawnDelay: 0
 --- !u!1 &8846912627229335406
 GameObject:
   m_ObjectHideFlags: 0
