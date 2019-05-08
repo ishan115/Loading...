@@ -1458,6 +1458,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5462491507797192482, guid: f5fdb4691134cbb4db50947cc1ded9e3,
         type: 3}
+      propertyPath: frameRegions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5462491507797192482, guid: f5fdb4691134cbb4db50947cc1ded9e3,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1779589041}
@@ -1471,6 +1476,26 @@ PrefabInstance:
       propertyPath: playerHitboxOriginToGround
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5462491507797192482, guid: f5fdb4691134cbb4db50947cc1ded9e3,
+        type: 3}
+      propertyPath: frameRegions.Array.data[0]
+      value: 
+      objectReference: {fileID: 201151547}
+    - target: {fileID: 5462491507797192482, guid: f5fdb4691134cbb4db50947cc1ded9e3,
+        type: 3}
+      propertyPath: frameRegions.Array.data[1]
+      value: 
+      objectReference: {fileID: 1590247356}
+    - target: {fileID: 5462491507797192482, guid: f5fdb4691134cbb4db50947cc1ded9e3,
+        type: 3}
+      propertyPath: frameRegions.Array.data[2]
+      value: 
+      objectReference: {fileID: 1904101979}
+    - target: {fileID: 5462491507797192482, guid: f5fdb4691134cbb4db50947cc1ded9e3,
+        type: 3}
+      propertyPath: frameRegions.Array.data[3]
+      value: 
+      objectReference: {fileID: 1711830307}
     - target: {fileID: 5462491507617581079, guid: f5fdb4691134cbb4db50947cc1ded9e3,
         type: 3}
       propertyPath: m_Follow
