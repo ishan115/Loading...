@@ -17,6 +17,7 @@ public class DialogueCore : MonoBehaviour
     {
         References = this;
         SetForwardErrorVisible(false);
+        dialoguePanel.SetActive(false);
     }
 
     public void SetForwardErrorVisible(bool isVisible)

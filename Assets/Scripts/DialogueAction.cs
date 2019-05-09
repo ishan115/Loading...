@@ -23,11 +23,6 @@ public class DialogueAction : MonoBehaviour
     private bool inChoice = false;
     private bool isChoiceA = true;
 
-    private void Awake()
-    {
-        DialogueCore.References.dialoguePanel.SetActive(false);
-    }
-
     // Update is called once per frame
     private void Update()
     {
