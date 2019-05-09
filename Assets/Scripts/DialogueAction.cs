@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class DialogueAction : MonoBehaviour
 {
-
     [SerializeField] private float charsPerSecond;
     [SerializeField] private string[] lines;
 
@@ -12,6 +11,8 @@ public class DialogueAction : MonoBehaviour
     [SerializeField] private string choice2;
     [SerializeField] private int choice1Empathy;
     [SerializeField] private int choice2Empathy;
+
+    [SerializeField] private BoxCollider2D linkedBlockade;
 
     private PlayerMovementController interactingPlayer;
     private string currentStringToPrint;
@@ -110,6 +111,13 @@ public class DialogueAction : MonoBehaviour
         DialogueCore.References.dialoguePanel.SetActive(false);
         inDialogue = false;
         interactingPlayer.InDialogue = false;
+
+        if(linkedBlockade != null)
+        {
+            Destroy(linkedBlockade);
+            DialogueCore.References.SetForwardErrorVisible(true);
+        }
+
         Destroy(gameObject);
     }
 

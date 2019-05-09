@@ -400,89 +400,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 1505806803997511954}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &869354998
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 869355000}
-  - component: {fileID: 869354999}
-  - component: {fileID: 869355001}
-  m_Layer: 0
-  m_Name: DialogueInteraction
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &869354999
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 869354998}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!4 &869355000
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 869354998}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.28, y: -2.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &869355001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 869354998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b2d081e24142c249b40d53656f3dcf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charsPerSecond: 30
-  lines:
-  - 'NPC: Oh! Can someone help me please?'
-  - "Player: Yeah! I have a band-aid. Here you g\u2026 Luke? Is that you?"
-  - "Luke: Oh my god! Max! It\u2019s been so long. How have you been?"
-  - 'Max: I have been well old friend. What brings you back after so long?'
-  - 'Luke: Came back for a business trip. Just tripped over a bottle here haha.'
-  - "Max: No worries. I\u2019m glad I ran into you."
-  hasChoice: 0
-  choice1: 'The first choice '
-  choice2: The second choice
-  choice1Empathy: 0
-  choice2Empathy: 0
 --- !u!1001 &900231119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1820,21 +1737,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7485150112450894764, guid: cf238768f815bfc46b0f5f189e39b099,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6066621277396974200, guid: cf238768f815bfc46b0f5f189e39b099,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1505806803593761250, guid: cf238768f815bfc46b0f5f189e39b099,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8203702446256245677, guid: cf238768f815bfc46b0f5f189e39b099,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1842,3 +1744,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf238768f815bfc46b0f5f189e39b099, type: 3}
+--- !u!1001 &3884459882648886254
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 457242573481128162, guid: b159d5aa8647c7a4099e94e4839f86e0,
+        type: 3}
+      propertyPath: m_Name
+      value: Dialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894576484612272312, guid: b159d5aa8647c7a4099e94e4839f86e0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894576484612272312, guid: b159d5aa8647c7a4099e94e4839f86e0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894576484612272312, guid: b159d5aa8647c7a4099e94e4839f86e0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894576484612272312, guid: b159d5aa8647c7a4099e94e4839f86e0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894576484612272312, guid: b159d5aa8647c7a4099e94e4839f86e0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894576484612272312, guid: b159d5aa8647c7a4099e94e4839f86e0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894576484612272312, guid: b159d5aa8647c7a4099e94e4839f86e0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894576484612272312, guid: b159d5aa8647c7a4099e94e4839f86e0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894576484612272312, guid: b159d5aa8647c7a4099e94e4839f86e0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894576484612272312, guid: b159d5aa8647c7a4099e94e4839f86e0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894576484612272312, guid: b159d5aa8647c7a4099e94e4839f86e0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b159d5aa8647c7a4099e94e4839f86e0, type: 3}
