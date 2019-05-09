@@ -185,7 +185,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         //Initialize Movement Variables
         moveInput = Input.GetAxisRaw("Horizontal");
-        jumpInput = Input.GetButtonDown("Fire1");
+        jumpInput = Input.GetButtonDown("Fire1"); // Jump is now fire1
         //TODO: Debug
         Debug.Log("jumpInput = " + jumpInput);
         //Regular Jump
