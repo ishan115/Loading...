@@ -57,7 +57,7 @@ public class DialogueAction : MonoBehaviour
                         isChoiceA = true;
                         DialogueCore.References.SelectionArrow.SetBool("OnOptionA", true);
                     }
-                    if (Input.GetKeyDown(KeyCode.R))
+                    if (Input.GetButtonDown("Fire2"))
                     {
                         if (isChoiceA)
                         {
@@ -72,7 +72,7 @@ public class DialogueAction : MonoBehaviour
                 }
                 else
                 {
-                    if (Input.GetKeyDown(KeyCode.R))
+                    if (Input.GetButtonDown("Fire2"))
                     {
                         printIndex++;
                         if (printIndex > lines.Length - 1)
@@ -124,7 +124,7 @@ public class DialogueAction : MonoBehaviour
             if (interactingPlayer != null)
             {
 
-                if (Input.GetKeyDown(KeyCode.R))
+                if (Input.GetButtonDown("Fire2"))
                 {
                     DialogueCore.References.choiceAOutput.text = "";
                     DialogueCore.References.choiceBOutput.text = "";
