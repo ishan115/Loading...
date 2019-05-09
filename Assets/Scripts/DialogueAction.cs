@@ -73,11 +73,11 @@ public class DialogueAction : MonoBehaviour
                     {
                         if (isChoiceA)
                         {
-                            //empathySlider.value += choice1Empathy;
+                            empathySlider.value += choice1Empathy;
                         }
                         else
                         {
-                            //empathySlider.value += choice2Empathy;
+                            empathySlider.value += choice2Empathy;
                         }
                         EndDialogue();
                     }
