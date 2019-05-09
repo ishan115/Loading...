@@ -1,16 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueAction : MonoBehaviour
 {
-    [SerializeField] private GameObject dialoguePanel;
-    [SerializeField] private Text dialogueOutput;
-    [SerializeField] private Text choiceAOutput;
-    [SerializeField] private Text choiceBOutput;
-    [SerializeField] private Animator SelectionArrow;
-    [SerializeField] private Slider empathySlider;
 
     [SerializeField] private float charsPerSecond;
     [SerializeField] private string[] lines;
@@ -32,7 +24,7 @@ public class DialogueAction : MonoBehaviour
 
     private void Awake()
     {
-        dialoguePanel.SetActive(false);
+        DialogueCore.References.dialoguePanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -46,13 +38,13 @@ public class DialogueAction : MonoBehaviour
                 if (currentPrintedCharacter >= lines[printIndex].Length - 1)
                 {
                     // printing complete.
-                    dialogueOutput.text = lines[printIndex];
+                    DialogueCore.References.dialogueOutput.text = lines[printIndex];
                     isCurrentlyPrinting = false;
                 }
                 else
                 {
                     // continue printing.
-                    dialogueOutput.text = lines[printIndex].Remove(currentPrintedCharacter);
+                    DialogueCore.References.dialogueOutput.text = lines[printIndex].Remove(currentPrintedCharacter);
                 }
             }
             else
@@ -62,22 +54,22 @@ public class DialogueAction : MonoBehaviour
                     if (Input.GetAxis("Vertical") < 0 && isChoiceA)
                     {
                         isChoiceA = false;
-                        SelectionArrow.SetBool("OnOptionA", false);
+                        DialogueCore.References.SelectionArrow.SetBool("OnOptionA", false);
                     }
                     else if(Input.GetAxis("Vertical") > 0 && !isChoiceA)
                     {
                         isChoiceA = true;
-                        SelectionArrow.SetBool("OnOptionA", true);
+                        DialogueCore.References.SelectionArrow.SetBool("OnOptionA", true);
                     }
                     if (Input.GetKeyDown(KeyCode.R))
                     {
                         if (isChoiceA)
                         {
-                            empathySlider.value += choice1Empathy;
+                            DialogueCore.References.empathySlider.value += choice1Empathy;
                         }
                         else
                         {
-                            empathySlider.value += choice2Empathy;
+                            DialogueCore.References.empathySlider.value += choice2Empathy;
                         }
                         EndDialogue();
                     }
@@ -92,9 +84,9 @@ public class DialogueAction : MonoBehaviour
                             // check for choice:
                             if (hasChoice)
                             {
-                                SelectionArrow.gameObject.GetComponent<RawImage>().enabled = true;
-                                choiceAOutput.text = choice1;
-                                choiceBOutput.text = choice2;
+                                DialogueCore.References.SelectionArrow.gameObject.GetComponent<RawImage>().enabled = true;
+                                DialogueCore.References.choiceAOutput.text = choice1;
+                                DialogueCore.References.choiceBOutput.text = choice2;
                                 inChoice = true;
                             }
                             else
@@ -115,7 +107,7 @@ public class DialogueAction : MonoBehaviour
 
     private void EndDialogue()
     {
-        dialoguePanel.SetActive(false);
+        DialogueCore.References.dialoguePanel.SetActive(false);
         inDialogue = false;
         interactingPlayer.InDialogue = false;
         Destroy(gameObject);
@@ -131,12 +123,12 @@ public class DialogueAction : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.R))
                 {
-                    choiceAOutput.text = "";
-                    choiceBOutput.text = "";
-                    dialogueOutput.text = "";
-                    SelectionArrow.gameObject.GetComponent<RawImage>().enabled = false;
+                    DialogueCore.References.choiceAOutput.text = "";
+                    DialogueCore.References.choiceBOutput.text = "";
+                    DialogueCore.References.dialogueOutput.text = "";
+                    DialogueCore.References.SelectionArrow.gameObject.GetComponent<RawImage>().enabled = false;
 
-                    dialoguePanel.SetActive(true);
+                    DialogueCore.References.dialoguePanel.SetActive(true);
                     interactingPlayer.InDialogue = true;
                     inDialogue = true;
                     isCurrentlyPrinting = true;

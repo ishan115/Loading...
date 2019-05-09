@@ -573,6 +573,7 @@ GameObject:
   - component: {fileID: 7334552567020663691}
   - component: {fileID: 2012733447784433259}
   - component: {fileID: 1141739503722955292}
+  - component: {fileID: 67275385056332118}
   m_Layer: 5
   m_Name: TextboxPanel
   m_TagString: Untagged
@@ -640,6 +641,24 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &67275385056332118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6416146633769560367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c8cba3800756841a21a90ed15cc24b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePanel: {fileID: 6416146633769560367}
+  dialogueOutput: {fileID: 8181448773157668537}
+  choiceAOutput: {fileID: 515529173832397467}
+  choiceBOutput: {fileID: 8513258168449536949}
+  SelectionArrow: {fileID: 1940586665936434200}
+  empathySlider: {fileID: 2017158255285681020}
 --- !u!1 &7431859335638259809
 GameObject:
   m_ObjectHideFlags: 0
