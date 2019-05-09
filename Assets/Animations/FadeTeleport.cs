@@ -10,5 +10,7 @@ public class FadeTeleport : StateMachineBehaviour
         DialogueCore.References.SetForwardErrorVisible(false);
         ScreenTransition transition = FindObjectOfType<ScreenTransition>();
         transition.Transition();
+
+		PlayerAnimator.mainPlayer.AdvanceSprite();
     }
 }
