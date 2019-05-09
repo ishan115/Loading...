@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 public class DialogueAction : MonoBehaviour
 {
+    [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private Text dialogueOutput;
+    [SerializeField] private Text choiceAOutput;
+    [SerializeField] private Text choiceBOutput;
+    [SerializeField] private Animator SelectionArrow;
     [SerializeField] private Slider empathySlider;
 
     [SerializeField] private float charsPerSecond;
@@ -23,6 +27,13 @@ public class DialogueAction : MonoBehaviour
     private bool inDialogue = false;
     private float printStartTime;
     private int printIndex;
+    private bool inChoice = false;
+    private bool isChoiceA = true;
+
+    private void Awake()
+    {
+        dialoguePanel.SetActive(false);
+    }
 
     // Update is called once per frame
     private void Update()
@@ -46,31 +57,68 @@ public class DialogueAction : MonoBehaviour
             }
             else
             {
-                if (Input.GetKeyDown(KeyCode.R))
+                if (inChoice)
                 {
-                    printIndex++;
-                    if (printIndex > lines.Length - 1)
+                    if (Input.GetAxis("Vertical") < 0 && isChoiceA)
                     {
-                        //check for choice:
-                        if (hasChoice)
+                        isChoiceA = false;
+                        SelectionArrow.SetBool("OnOptionA", false);
+                    }
+                    else if(Input.GetAxis("Vertical") > 0 && !isChoiceA)
+                    {
+                        isChoiceA = true;
+                        SelectionArrow.SetBool("OnOptionA", true);
+                    }
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        if (isChoiceA)
                         {
-
+                            //empathySlider.value += choice1Empathy;
                         }
                         else
                         {
-                            interactingPlayer.PlayerCanMove = true;
-                            Destroy(gameObject);
+                            //empathySlider.value += choice2Empathy;
                         }
+                        EndDialogue();
                     }
-                    else
+                }
+                else
+                {
+                    if (Input.GetKeyDown(KeyCode.R))
                     {
-                        interactingPlayer.PlayerCanMove = false;
-                        isCurrentlyPrinting = true;
-                        printStartTime = Time.time;
+                        printIndex++;
+                        if (printIndex > lines.Length - 1)
+                        {
+                            // check for choice:
+                            if (hasChoice)
+                            {
+                                SelectionArrow.gameObject.GetComponent<RawImage>().enabled = true;
+                                choiceAOutput.text = choice1;
+                                choiceBOutput.text = choice2;
+                                inChoice = true;
+                            }
+                            else
+                            {
+                                EndDialogue();
+                            }
+                        }
+                        else
+                        {
+                            isCurrentlyPrinting = true;
+                            printStartTime = Time.time;
+                        }
                     }
                 }
             }
         }
+    }
+
+    private void EndDialogue()
+    {
+        dialoguePanel.SetActive(false);
+        inDialogue = false;
+        interactingPlayer.InDialogue = false;
+        Destroy(gameObject);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -83,7 +131,13 @@ public class DialogueAction : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.R))
                 {
-                    interactingPlayer.PlayerCanMove = false;
+                    choiceAOutput.text = "";
+                    choiceBOutput.text = "";
+                    dialogueOutput.text = "";
+                    SelectionArrow.gameObject.GetComponent<RawImage>().enabled = false;
+
+                    dialoguePanel.SetActive(true);
+                    interactingPlayer.InDialogue = true;
                     inDialogue = true;
                     isCurrentlyPrinting = true;
                     printIndex = 0;

@@ -37,6 +37,7 @@ public class PlayerMovementController : MonoBehaviour
     private bool jumpInput, canJump, playerIsOnGround;
     private float playerMovement;
     private bool canMove;
+    private bool inDialogue;
     private bool isAlive;
     private LayerMask whatIsGround;
     private CheckpointController currentCheckpoint;
@@ -45,6 +46,18 @@ public class PlayerMovementController : MonoBehaviour
     #endregion
 
     #region Properties
+    public bool InDialogue
+    {
+        get
+        {
+            return inDialogue;
+        }
+        set
+        {
+            inDialogue = value;
+        }
+    }
+
     //Made accessable to other 
     public bool PlayerCanMove
     {
@@ -130,6 +143,10 @@ public class PlayerMovementController : MonoBehaviour
         if (isAlive)
         {
             PlayerCanMove = true;
+        }
+        if (inDialogue)
+        {
+            PlayerCanMove = false;
         }
 
         if (PlayerCanMove)
