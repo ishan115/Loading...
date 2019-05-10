@@ -3089,7 +3089,7 @@ PrefabInstance:
     - target: {fileID: 5462491507797192484, guid: f5fdb4691134cbb4db50947cc1ded9e3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6802249
+      value: 0.66886044
       objectReference: {fileID: 0}
     - target: {fileID: 5462491507797192484, guid: f5fdb4691134cbb4db50947cc1ded9e3,
         type: 3}
@@ -3161,6 +3161,21 @@ PrefabInstance:
       propertyPath: m_Depth
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 5462491507797192485, guid: f5fdb4691134cbb4db50947cc1ded9e3,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5462491507797192485, guid: f5fdb4691134cbb4db50947cc1ded9e3,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5462491507797192485, guid: f5fdb4691134cbb4db50947cc1ded9e3,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5462491507797192482, guid: f5fdb4691134cbb4db50947cc1ded9e3,
         type: 3}
       propertyPath: frameRegions.Array.size
@@ -3204,7 +3219,7 @@ PrefabInstance:
     - target: {fileID: 5462491507617581080, guid: f5fdb4691134cbb4db50947cc1ded9e3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.6000376
+      value: -6.5880623
       objectReference: {fileID: 0}
     - target: {fileID: 5462491507617581080, guid: f5fdb4691134cbb4db50947cc1ded9e3,
         type: 3}
