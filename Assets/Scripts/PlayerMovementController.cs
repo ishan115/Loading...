@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,6 +44,7 @@ public class PlayerMovementController : MonoBehaviour
     private CheckpointController currentCheckpoint;
     private Transform currentCheckpointLocation, spawnPointLocation;
     private GameObject spawnPoint;
+    private Animator playerAnimator;
     #endregion
 
     #region Properties
@@ -140,11 +142,13 @@ public class PlayerMovementController : MonoBehaviour
 
         CheckForPlayerDeath();
 
+        playerAnimator.SetFloat("Speed", Mathf.Abs(playerRigidBody.velocity.x));
+
         if (isAlive)
         {
             PlayerCanMove = true;
         }
-        if (inDialogue)
+        if (inDialogue || !isAlive)
         {
             PlayerCanMove = false;
         }
@@ -159,7 +163,7 @@ public class PlayerMovementController : MonoBehaviour
                 canJump = false;
         }
     }
-    
+
     private void InitializePlayer()
     {
         isAlive = true;
@@ -170,6 +174,7 @@ public class PlayerMovementController : MonoBehaviour
         spawnPoint = GameObject.Find("SpawnPoint");
         spawnPointLocation = spawnPoint.transform;
         playerSpriteRend = GetComponent<Renderer>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     private void CheckIfOnGround()
@@ -222,14 +227,11 @@ public class PlayerMovementController : MonoBehaviour
         }
         else if (playerRigidBody.velocity.x < -0.1)
         {
-            //TODO: Temporarily Disabling Sprite Flipping
-            /*
-            transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z);
-            */
+            //transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z);
         }
         else
         {
-            transform.localScale = new Vector3(this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z);
+            //transform.localScale = new Vector3(this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z);
         }
     }
 
