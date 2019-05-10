@@ -162,7 +162,6 @@ public class PlayerMovementController : MonoBehaviour
     
     private void InitializePlayer()
     {
-        AnimatorOverrideController.
         isAlive = true;
         // Game Object References
         whatIsGround = LayerMask.GetMask("Ground");
@@ -197,7 +196,7 @@ public class PlayerMovementController : MonoBehaviour
             JumpHandler();
         }
     }
-
+    
     /// <summary>
     /// Adds the jump force
     /// </summary>
