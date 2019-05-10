@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 8846912627058323947}
   - component: {fileID: 8846912627058323944}
   - component: {fileID: 8846912627058323945}
-  - component: {fileID: 1559867397874476303}
+  - component: {fileID: 7716164743302790973}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8846912627058323950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.965, y: 0.988, z: 0}
+  m_LocalPosition: {x: -6.35, y: -1.892, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8846912627229335401}
@@ -70,10 +70,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1606590209
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 224e3ee59716f06468b7bbd2e96bf35b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9915fd628501d3f49b90673323f01508, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,7 +130,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8846912627058323945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,29 +149,25 @@ MonoBehaviour:
   groundCheckRadius: 0.2
   groundCheck: {fileID: 8846912627229335401}
   spawnDelay: 0
---- !u!114 &1559867397874476303
-MonoBehaviour:
+--- !u!95 &7716164743302790973
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8846912627058323950}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd9236456977c7c48af0c8ee9723ce72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMainPlayer: 0
-  velocityCycleSpeedCoefficient: 3
-  baseCycleSpeed: 1
-  linkedBody: {fileID: 8846912627058323944}
-  playerRender: {fileID: 8846912627058323946}
-  stageOneWalkingCycle:
-  - {fileID: 21300000, guid: e1fa443d93eefce4088ef9c8f608b9b0, type: 3}
-  - {fileID: 21300002, guid: e1fa443d93eefce4088ef9c8f608b9b0, type: 3}
-  - {fileID: 21300004, guid: e1fa443d93eefce4088ef9c8f608b9b0, type: 3}
-  - {fileID: 21300006, guid: e1fa443d93eefce4088ef9c8f608b9b0, type: 3}
-  stageTwoWalkingCycle: []
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: baf739090e7ea6f4b9f904309054450b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8846912627229335406
 GameObject:
   m_ObjectHideFlags: 0
