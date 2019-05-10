@@ -15,8 +15,15 @@ public class PlayerAnimator : MonoBehaviour
 
 	[SerializeField] private Sprite[] stageOneWalkingCycle;
 	[SerializeField] private Sprite[] stageTwoWalkingCycle;
+    [SerializeField] private Sprite[] stageThreeWalkingCycle;
+    [SerializeField] private Sprite[] stageFourWalkingCycle;
+    [SerializeField] private Sprite[] stageFiveWalkingCycle;
+    [SerializeField] private Sprite[] stageSixWalkingCycle;
+    [SerializeField] private Sprite[] stageSevenWalkingCycle;
+    [SerializeField] private Sprite[] stageEightWalkingCycle;
+    [SerializeField] private Sprite[] stageNineWalkingCycle;
 
-	private float currentFrameTime = 0;
+    private float currentFrameTime = 0;
 	private int currentStage = 1;
 	private int currentFrame = 0;
 
@@ -63,6 +70,24 @@ public class PlayerAnimator : MonoBehaviour
 				return stageOneWalkingCycle;
 			case 2:
 				return stageTwoWalkingCycle;
+            case 3:
+                return stageThreeWalkingCycle;
+            case 4:
+                return stageThreeWalkingCycle; // Level 1 Platform
+            case 5:
+                return stageFourWalkingCycle;
+            case 6:
+                return stageFiveWalkingCycle;
+            case 7:
+                return stageSixWalkingCycle;
+            case 8:
+                return stageSevenWalkingCycle;
+            case 9:
+                return stageEightWalkingCycle;
+            case 10:
+                return stageNineWalkingCycle;
+            case 11:
+                return stageNineWalkingCycle; // Level 2 Platform
 		}
 		return stageOneWalkingCycle;
 	}
